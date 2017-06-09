@@ -1,0 +1,177 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+        <Schema
+            xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+            xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="demo_services.storedata.services">
+            <EntityType Name="UbigeoType">
+                <Key>
+                    <PropertyRef Name="UBIGEO_ID"/>
+                </Key>
+                <Property Name="UBIGEO_ID" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="UBIGEO_DEPARTAMENTO" Type="Edm.String" MaxLength="50"/>
+                <Property Name="UBIGEO_PROVINCIA" Type="Edm.String" MaxLength="50"/>
+                <Property Name="UBIGEO_DISTRITO" Type="Edm.String" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="ClienteType">
+                <Key>
+                    <PropertyRef Name="CLIENTE_ID"/>
+                </Key>
+                <Property Name="CLIENTE_ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="CLIENTE_TIPO_DOC" Type="Edm.Int32"/>
+                <Property Name="CLIENTE_NRO_DOC" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CLIENTE_NOMBRES" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CLIENTE_APE_PATERNO" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CLIENTE_APE_MATERNO" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CLIENTE_GIRO_NEGOCIO" Type="Edm.Int32"/>
+                <Property Name="CLIENTE_DIRECCION" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CLIENTE_UBIGEO" Type="Edm.String" MaxLength="6"/>
+                <Property Name="CLIENTE_TELEFONO" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CLIENTE_CELULAR" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CLIENTE_CORREO" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CLIENTE_IS_EMPRESA" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CLIENTE_FECHA_REG" Type="Edm.String" MaxLength="20"/>
+                <Property Name="CLIENTE_USUARIO_REG" Type="Edm.String" MaxLength="20"/>
+            </EntityType>
+            <EntityType Name="VehiculoType">
+                <Key>
+                    <PropertyRef Name="VEHICULO_ID"/>
+                </Key>
+                <Property Name="VEHICULO_ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="VEHICULO_PLACA" Type="Edm.String" MaxLength="12"/>
+                <Property Name="VEHICULO_VIN" Type="Edm.String" MaxLength="15"/>
+                <Property Name="VEHICULO_MARCA" Type="Edm.String" MaxLength="50"/>
+                <Property Name="VEHICULO_MODELO" Type="Edm.String" MaxLength="100"/>
+                <Property Name="VEHICULO_COLOR" Type="Edm.String" MaxLength="20"/>
+                <Property Name="VEHICULO_ANIO" Type="Edm.Int32"/>
+                <Property Name="VEHICULO_FECHA_REG" Type="Edm.String" MaxLength="20"/>
+                <Property Name="VEHICULO_USUARIO_REG" Type="Edm.String" MaxLength="20"/>
+                <Property Name="VEHICULO_CLIENTE" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="AgendaType">
+                <Key>
+                    <PropertyRef Name="AGENDA_ID"/>
+                </Key>
+                <Property Name="AGENDA_ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="AGENDA_FECHA_INICIO" Type="Edm.String" MaxLength="20"/>
+                <Property Name="AGENDA_FECHA_FIN" Type="Edm.String" MaxLength="20"/>
+                <Property Name="AGENDA_TOLERANCIA" Type="Edm.Int32"/>
+                <Property Name="AGENDA_RESPONSABLE" Type="Edm.String" MaxLength="250"/>
+                <Property Name="AGENDA_ESTADO" Type="Edm.String" MaxLength="2"/>
+                <Property Name="AGENDA_FECHA_REG" Type="Edm.String" MaxLength="20"/>
+                <Property Name="AGENDA_USUARIO_REG" Type="Edm.String" MaxLength="20"/>
+                <Property Name="AGENDA_VEHICULO" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="TipoDocumentoType">
+                <Key>
+                    <PropertyRef Name="TIPO_DOC_ID"/>
+                </Key>
+                <Property Name="TIPO_DOC_ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="TIPO_DOC_DESC" Type="Edm.String" MaxLength="50"/>
+                <Property Name="TIPO_DOC_MIN" Type="Edm.Int32"/>
+                <Property Name="TIPO_DOC_MAX" Type="Edm.Int32"/>
+                <Property Name="TIPO_DOC_IGUAL" Type="Edm.Int32"/>
+                <Property Name="TIPO_DOC_VAL" Type="Edm.String" MaxLength="5"/>
+                <Property Name="TIPO_DOC_ESTADO" Type="Edm.String" MaxLength="2"/>
+            </EntityType>
+            <EntityType Name="GiroComercialType">
+                <Key>
+                    <PropertyRef Name="GIRO_COM_ID"/>
+                </Key>
+                <Property Name="GIRO_COM_ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="GIRO_COM_DESC" Type="Edm.String" MaxLength="50"/>
+                <Property Name="GIRO_COM_ESTADO" Type="Edm.String" MaxLength="2"/>
+            </EntityType>
+            <Association Name="Clientes_UbigeosType">
+                <End Type="demo_services.storedata.services.UbigeoType" Role="UbigeoPrincipal" Multiplicity="1"/>
+                <End Type="demo_services.storedata.services.ClienteType" Role="ClienteDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="UbigeoPrincipal">
+                        <PropertyRef Name="UBIGEO_ID"/>
+                    </Principal>
+                    <Dependent Role="ClienteDependent">
+                        <PropertyRef Name="CLIENTE_UBIGEO"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Clientes_TipoDocumentoType">
+                <End Type="demo_services.storedata.services.TipoDocumentoType" Role="TipoDocumentoPrincipal" Multiplicity="1"/>
+                <End Type="demo_services.storedata.services.ClienteType" Role="ClienteDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="TipoDocumentoPrincipal">
+                        <PropertyRef Name="TIPO_DOC_ID"/>
+                    </Principal>
+                    <Dependent Role="ClienteDependent">
+                        <PropertyRef Name="CLIENTE_TIPO_DOC"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Clientes_GiroComercialType">
+                <End Type="demo_services.storedata.services.GiroComercialType" Role="GiroComercialPrincipal" Multiplicity="1"/>
+                <End Type="demo_services.storedata.services.ClienteType" Role="ClienteDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="GiroComercialPrincipal">
+                        <PropertyRef Name="GIRO_COM_ID"/>
+                    </Principal>
+                    <Dependent Role="ClienteDependent">
+                        <PropertyRef Name="CLIENTE_GIRO_NEGOCIO"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Vehiculos_ClienteType">
+                <End Type="demo_services.storedata.services.ClienteType" Role="ClientePrincipal" Multiplicity="1"/>
+                <End Type="demo_services.storedata.services.VehiculoType" Role="VehiculoDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="ClientePrincipal">
+                        <PropertyRef Name="CLIENTE_ID"/>
+                    </Principal>
+                    <Dependent Role="VehiculoDependent">
+                        <PropertyRef Name="VEHICULO_CLIENTE"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="Agendas_VehiculosType">
+                <End Type="demo_services.storedata.services.VehiculoType" Role="VehiculoPrincipal" Multiplicity="1"/>
+                <End Type="demo_services.storedata.services.AgendaType" Role="AgendaDependent" Multiplicity="*"/>
+                <ReferentialConstraint>
+                    <Principal Role="VehiculoPrincipal">
+                        <PropertyRef Name="VEHICULO_ID"/>
+                    </Principal>
+                    <Dependent Role="AgendaDependent">
+                        <PropertyRef Name="AGENDA_VEHICULO"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="services" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Ubigeo" EntityType="demo_services.storedata.services.UbigeoType"/>
+                <EntitySet Name="Cliente" EntityType="demo_services.storedata.services.ClienteType"/>
+                <EntitySet Name="Vehiculo" EntityType="demo_services.storedata.services.VehiculoType"/>
+                <EntitySet Name="Agenda" EntityType="demo_services.storedata.services.AgendaType"/>
+                <EntitySet Name="TipoDocumento" EntityType="demo_services.storedata.services.TipoDocumentoType"/>
+                <EntitySet Name="GiroComercial" EntityType="demo_services.storedata.services.GiroComercialType"/>
+                <AssociationSet Name="Clientes_Ubigeos" Association="demo_services.storedata.services.Clientes_UbigeosType">
+                    <End Role="UbigeoPrincipal" EntitySet="Ubigeo"/>
+                    <End Role="ClienteDependent" EntitySet="Cliente"/>
+                </AssociationSet>
+                <AssociationSet Name="Clientes_TipoDocumento" Association="demo_services.storedata.services.Clientes_TipoDocumentoType">
+                    <End Role="TipoDocumentoPrincipal" EntitySet="TipoDocumento"/>
+                    <End Role="ClienteDependent" EntitySet="Cliente"/>
+                </AssociationSet>
+                <AssociationSet Name="Clientes_GiroComercial" Association="demo_services.storedata.services.Clientes_GiroComercialType">
+                    <End Role="GiroComercialPrincipal" EntitySet="GiroComercial"/>
+                    <End Role="ClienteDependent" EntitySet="Cliente"/>
+                </AssociationSet>
+                <AssociationSet Name="Vehiculos_Cliente" Association="demo_services.storedata.services.Vehiculos_ClienteType">
+                    <End Role="ClientePrincipal" EntitySet="Cliente"/>
+                    <End Role="VehiculoDependent" EntitySet="Vehiculo"/>
+                </AssociationSet>
+                <AssociationSet Name="Agendas_Vehiculos" Association="demo_services.storedata.services.Agendas_VehiculosType">
+                    <End Role="VehiculoPrincipal" EntitySet="Vehiculo"/>
+                    <End Role="AgendaDependent" EntitySet="Agenda"/>
+                </AssociationSet>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

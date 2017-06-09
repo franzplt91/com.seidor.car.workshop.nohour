@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta charset="UTF-8">
+
+        <title>Recepción con agenda</title>
+        <script src="js/html2canvas.js" ></script>
+        <script id="sap-ui-bootstrap"
+                src="../../resources/sap-ui-core.js"
+                data-sap-ui-libs="sap.m"
+                data-sap-ui-theme="sap_belize"
+                data-sap-ui-compatVersion="edge"
+                data-sap-ui-resourceroots='{"pe.seidor.sap.comagenda_vehiculo": "./"}'>
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/canvasmap.css">
+
+
+        <script>
+            sap.ui.getCore().attachInit(function () {
+                new sap.m.Shell({
+                    app: new sap.ui.core.ComponentContainer({
+                        height: "100%",
+                        name: "pe.seidor.sap.comagenda_vehiculo"
+                    })
+                }).placeAt("content");
+            });
+
+            $(document).ready(function () {
+
+            })
+        </script>
+        <style type="text/css">
+
+            area:hover {
+                background-color:rgba(173,255,47,0.9) !important;
+            }
+        </style>  
+    </head>
+
+    <body class="sapUiBody">
+        <div id="content" >
+
+        </div>
+
+        <!--div id='frontalVehiculo' style="display: none">
+            <div class="map-vehiculo" id="colourwheel">
+                <map name="colourwheel">
+                    <area  alt="001" title="001"  coords="297,374,313,376,327,377,354,377,384,379,404,379,417,377,422,389,424,402,424,417,424,431,422,443,422,454,415,471,394,471,372,471,347,473,327,473,312,473,298,476,292,458,288,438,288,411,292,391" shape="poly">
+                    <area  alt="002" title="002"  coords="233,357,223,371,219,381,218,396,214,409,214,419,216,434,216,449,219,463,223,476,231,490,243,490,265,485,280,479,297,474,290,453,288,438,286,424,290,411,290,399,297,374" shape="poly">
+                    <area  alt="028" title="028"  coords="469,369,481,382,484,401,486,417,486,436,484,456,477,471,471,479,454,478,436,474,419,471,424,453,424,438,424,417,424,396,419,377" shape="poly">
+                    <area  alt="025" title="025"  coords="472,369,518,371,521,384,524,398,524,411,524,425,524,438,523,450,521,463,519,473,518,480,503,478,489,478,471,480,479,470,484,453,488,426,484,392" shape="poly">
+                    <area  alt="004" title="004"  coords="230,355,211,355,183,357,159,359,134,362,129,372,126,382,124,384,121,399,119,416,119,428,119,439,121,454,124,463,129,476,134,485,136,490,147,490,161,491,176,491,189,493,204,493,221,493,231,493,221,474,214,436,214,409,223,374" shape="poly">
+                    <area  alt="025" title="025"  coords="42,209,52,246,141,246,153,209,101,206,59,206" shape="poly">
+                    <area  alt="028" title="028"  coords="39,208,49,181,141,181,149,208" shape="poly">
+                    <area  alt="029" title="029"  coords="15,245,173,247,173,260,169,270,164,282,149,279,132,279,119,277,97,277,74,277,54,276,35,276,25,281,18,269" shape="poly">
+                    <area  alt="022" title="022"  coords="20,227,35,224,44,227,49,237,34,237,23,232" shape="poly">
+                    <area  alt="021" title="021"  coords="146,228,157,226,168,226,168,230,161,236,144,236" shape="poly">
+                    <area  alt="016" title="016"  coords="15,264,17,279,17,301,34,302,35,279,25,284" shape="poly">
+                    <area  alt="015" title="015"  coords="154,281,154,303,169,305,173,300,173,281,173,264,166,278,161,281" shape="poly">
+                    <area  alt="004" title="004"  coords="28,54,32,69,44,72,54,72,60,79,65,86,79,87,104,87,122,87,127,77,141,74,156,72,161,54,129,50,77,49,40,50" shape="poly">
+                    <area  alt="002" title="002"  coords="28,52,47,17,142,17,154,37,159,52,95,47" shape="poly">
+                    <area  alt="005" title="005"  coords="25,73,37,72,56,73,61,78,61,83,44,85,30,80" shape="poly">
+                    <area  alt="006" title="006"  coords="127,82,137,85,151,85,163,80,163,75,149,72,136,73" shape="poly">
+                    <area  alt="003" title="003"  coords="15,84,22,83,35,84,60,86,67,91,90,91,121,89,129,88,161,86,171,83,173,94,171,111,166,121,154,123,136,123,111,123,84,121,55,121,40,121,23,121,15,101" shape="poly">
+                    <area  alt="026" title="026"  coords="8,51,8,42,23,41,27,48" shape="poly">
+                    <area  alt="027" title="027"  coords="164,42,181,42,183,54,163,52" shape="poly">
+                    <area  alt="007" title="007"  coords="17,104,22,121,34,122,32,139,15,137,15,124" shape="poly">
+                    <area  alt="008" title="008"  coords="174,101,168,119,154,124,156,139,174,139,173,120" shape="poly">
+                    <area  alt="008" title="008"  coords="266,100,273,85,286,77,305,77,320,87,327,103,325,118,318,127,307,135,290,137,271,125,265,112" shape="poly">
+                    <area  alt="007" title="007"  coords="530,247,543,240,558,240,568,245,575,254,580,264,580,275,575,287,565,298,543,301,528,292,521,279,520,264" shape="poly">
+                    <area  alt="015" title="015"  coords="276,254,286,245,300,239,310,242,320,245,325,252,330,260,333,272,330,284,323,292,315,299,302,301,290,299,280,291,273,281,271,267" shape="poly">
+                    <area  alt="016" title="016"  coords="518,88,528,80,545,77,555,78,561,83,568,90,571,98,573,107,571,118,565,127,556,134,546,137,534,137,521,130,514,115,513,105" shape="poly">
+                    <area  alt="009" title="009"  coords="400,211,501,216,506,245,504,272,405,270,405,238" shape="poly">
+                    <area  alt="010" title="010"  coords="342,54,374,50,402,50,442,49,439,107,340,107" shape="poly">
+                    <area  alt="011" title="011"  coords="397,175,405,212,499,217,483,202,466,190,442,180,419,175" shape="poly">
+                    <area  alt="012" title="012"  coords="343,51,439,48,447,11,405,13,374,28" shape="poly">
+                    <area  alt="017" title="017"  coords="323,208,397,212,404,227,405,270,340,270,337,250,320,235" shape="poly">
+                    <area  alt="018" title="018"  coords="439,107,504,105,508,89,516,79,524,70,524,55,519,44,444,49" shape="poly">
+                    <area  alt="019" title="019"  coords="338,182,352,177,369,175,390,175,397,212,323,207" shape="poly">
+                    <area  alt="020" title="020"  coords="449,45,545,45,533,33,518,23,504,16,486,11,467,11,454,9" shape="poly">
+                    <area  alt="003" title="003"  coords="580,245,596,245,620,246,633,251,632,263,632,273,615,273,588,273" shape="poly">
+                    <area  alt="003" title="003"  coords="211,87,221,83,243,82,265,82,258,92,255,108,213,110" shape="poly">
+                    <area  alt="029" title="029"  coords="278,241,270,251,265,265,261,277,216,272,213,250,216,241" shape="poly">
+                    <area  alt="029" title="029"  coords="566,77,576,87,583,104,583,112,625,107,632,104,628,101,632,87,625,75" shape="poly">
+                    <area  alt="030" title="030"  coords="228,208,268,207,281,200,323,180,335,177,345,177,323,188,312,197,298,208,308,210,322,210,318,235,305,232,293,235,278,240,223,240" shape="poly">
+                    <area  alt="031" title="031"  coords="523,47,545,45,534,32,519,22,504,15,493,10,516,15,531,17,543,25,555,30,568,39,581,42,596,44,612,44,617,45,618,54,622,64,620,74,598,75,576,75,563,74,548,69,526,70" shape="poly">
+                </map> 
+                <canvas id="area" height = "513" width="640" ></canvas>
+            </div>       
+            <img src="images/transparent.gif"   height = "513" width="640"  border="0" class="colourwheel" usemap="#colourwheel">
+        </div-->
+
+        <div id='posteriorVehiculo' style="display: none">
+            <div id="canvas_div_parte_trasera"  class="map-vehiculo" >
+
+                <map name="canvas_map_parte_trasera">
+
+                    <area id="FARO_IZQ_TRASERO" coords="78,146,113,145,163,142,161,128,154,121,131,122,104,125,80,129,75,133" shape="poly" >
+
+                    <area id="FARO_DER_TRASERO" coords="321,142,406,147,408,133,402,128,341,120,328,123"  shape="poly" >
+
+                    <area id="RUEDA_IZQ_TRASERA" coords="58,203,59,277,127,276,127,236,116,241,109,245,92,242,73,236,63,222" shape="poly">
+
+                    <area id="RUEDA_DER_TRASERA" coords="358,235,358,277,427,276,428,205,421,219,417,229,410,236,391,242,375,244" shape="poly">
+
+                    <area id="PARA_BRISAS_TRASERO" coords="140,101,169,103,233,102,285,102,321,101,348,99,353,93,349,68,343,62,298,57,245,56,193,56,162,60,140,63,131,94" shape="poly">
+
+                    <area id="MALETERO" coords="76,127,109,123,149,120,155,121,160,126,163,133,165,142,170,166,175,184,195,184,211,184,229,184,254,184,280,184,298,184,309,184,313,175,315,164,317,153,319,145,322,136,327,124,337,120,343,118,349,118,355,118,363,119,370,121,381,123,391,124,400,127,408,127,412,117,382,109,374,105,366,103,355,102,345,99,228,103,166,103,133,101,115,103,100,108,93,110,71,116" shape="poly">
+
+                </map>
+
+                <canvas id="canvas_parte_trasera"  height = "328" width="499" ></canvas>
+
+            </div> 
+            <img src="images/transparent.gif" height = "328" width="499" border="0" class="colourwheel" usemap="#canvas_map_parte_trasera">
+        </div>
+
+    </body>
+
+</html>

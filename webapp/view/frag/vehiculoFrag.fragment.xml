@@ -1,0 +1,89 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:s="sap.m.semantic">
+	<!--ScrollContainer
+    height="20rem"
+    vertical="true"-->
+	<VBox class="sapUiSmallMargin">
+		<f:Form editable="false">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+					emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="3" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Placa">
+							<f:fields>
+								<Input editable="false" value="{/Agenda/VEHICULO_PLACA}"/>
+								<!--Button icon="sap-icon://search" press="onPress" >
+                                        <layoutData>
+                                                <l:GridData span="L2 M3 S12"/>
+                                        </layoutData>
+                                </Button-->
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="VIN">
+							<f:fields>
+								<Input editable="false" value="{/Agenda/VEHICULO_VIN}"/>
+								<!--Button icon="sap-icon://search" press="onPress" >
+                                        <layoutData>
+                                                <l:GridData span="L2 M3 S12"/>
+                                        </layoutData>
+                                </Button-->
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="false">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+					emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="3" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Marca">
+							<f:fields>
+								<Input editable="false" value="{/Agenda/VEHICULO_MARCA}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Modelo">
+							<f:fields>
+								<Input editable="false" value="{/Agenda/VEHICULO_MODELO}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Color">
+							<f:fields>
+								<Input editable="false" value="{/Agenda/VEHICULO_COLOR}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label=" Año">
+							<f:fields>
+								<Input editable="false" value="{/Agenda/VEHICULO_ANIO}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+	<!--/ScrollContainer-->
+</core:FragmentDefinition>

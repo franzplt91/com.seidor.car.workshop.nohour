@@ -1,0 +1,199 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+                         xmlns:s="sap.m.semantic">
+    <!--ScrollContainer height="20rem" vertical="true"-->
+    <VBox class="sapUiSmallMargin">
+        <f:Form editable="true" ariaLabelledBy="Title1">
+            <f:layout>
+                <f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                                                emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Tipo de Mantenimiento">
+                            <f:fields>
+                            	<RadioButtonGroup id="check_group_mantencion" select="onCheckServicio">
+								 <buttons>
+									<RadioButton id="check_servicio" text="Servicio">
+										<layoutData>
+	                                        <l:GridData span="L6 M6 S6"/>
+	                                    </layoutData>
+									</RadioButton>
+	                                <RadioButton id="check_dp" text="D / P" >
+	                                	<layoutData>
+	                                        <l:GridData span="L6 M6 S6"/>
+	                                    </layoutData>
+									</RadioButton>
+	                                </buttons>
+	                                <layoutData>
+                                        <l:GridData span="L6 M12 S12"/>
+                                    </layoutData>
+								</RadioButtonGroup>
+                                <Select id="cbo_tipo_mantencion" width="100%" items="{/tipoMantencionListaModel}">
+                                    <items>
+                                        <core:Item key="{TIPO_MANTENCION_ID}" text="{TIPO_MANTENCION_DESC}"/>
+                                    </items>
+                                    <layoutData>
+                                        <l:GridData span="L6 M12 S12"/>
+                                    </layoutData>
+                                </Select>
+                            </f:fields>
+                        </f:FormElement>
+							
+                    </f:formElements>
+                </f:FormContainer>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Tipo de servicio">
+                            <f:fields>
+                                <CheckBox id="check_inspeccion" text="Inspección">
+                                    <layoutData>
+                                        <l:GridData span="L4 M6 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox  id="check_presupuesto"  text="Presupuesto">
+                                    <layoutData>
+                                        <l:GridData span="L4 M6 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox id="check_general" text="Chequeo general">
+                                    <layoutData>
+                                        <l:GridData span="L4 M6 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+			
+        <f:Form>
+            <f:layout>
+                <f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                                                emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Observaciones">
+                            <f:fields>
+                                <TextArea id="txt_observaciones" rows="2">
+                                    <layoutData>
+                                        <l:GridData span="L12 M12 S12"/>
+                                    </layoutData>
+                                </TextArea>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+			
+        <f:Form>
+            <f:layout>
+                <f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                                                emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Inventario">
+                            <f:fields>
+                                <CheckBox id="check_plumillas" text="Plumillas">
+                                    <layoutData>
+                                        <l:GridData span="L2 M3 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox id="check_radio"  text="Radio">
+                                    <layoutData>
+                                        <l:GridData span="L2 M3 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox id="check_piso_goma" text="Piso de goma">
+                                    <layoutData>
+                                        <l:GridData span="L2 M3 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox id="check_gata" text="Gata">
+                                    <layoutData>
+                                        <l:GridData span="L2 M3 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox id="check_accesorios" text="Accesorios">
+                                    <layoutData>
+                                        <l:GridData span="L2 M3 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox id="check_heramientas" text="Herramientas">
+                                    <layoutData>
+                                        <l:GridData span="L2 M3 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox id="check_panel_radio" text="Panel radio">
+                                    <layoutData>
+                                        <l:GridData span="L2 M3 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox id="check_encendedor" text="Encendedor">
+                                    <layoutData>
+                                        <l:GridData span="L2 M3 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox id="check_seguridad" text="Set de seguridad">
+                                    <layoutData>
+                                        <l:GridData span="L2 M3 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox id="check_tapa_ruedas" text="Tapa ruedas">
+                                    <layoutData>
+                                        <l:GridData span="L2 M3 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox id="check_tag" text="Tag">
+                                    <layoutData>
+                                        <l:GridData span="L2 M3 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                                <CheckBox id="check_ruedas_repuesto" text="Rueda de respuesto">
+                                    <layoutData>
+                                        <l:GridData span="L2 M3 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+        <f:Form>
+            <f:layout>
+                <f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                                                emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false"/>
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Kilometraje">
+                            <f:fields>
+                                <Input change="onChangeInput" id="txt_kilometraje" />
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Nivel de Combustible">
+                            <f:fields>
+                                <Slider id="sld_nivel_combustible" step="0.25" range="0,1" enableTickmarks="true" min="0" max="1" >
+                                    
+                                </Slider>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
+    <!--/ScrollContainer-->
+</core:FragmentDefinition>

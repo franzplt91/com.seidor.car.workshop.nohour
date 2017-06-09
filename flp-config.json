@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "pe.seidor.sap.comagenda_vehiculo.agenda_vehiculo_v2",
+        "description": "Recepcion de Vehiculos",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#agenda_vehiculo_v2-Display",
+        "navigationComponentName": "pe.seidor.sap.comagenda_vehiculo",
+        "intentSemanticObject": "agenda_vehiculo_v2",
+        "intentAction": "Display",
+        "html5ApplicationName": "recepcionconagenda",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "produccion_id"
+        ],
+        "contentPackages": [
+            "repecion_id"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Recepcion de vehiculos",
+        "subtitle": "con agenda",
+        "searchKeywords": "Recepcion de vehiculos,con agenda",
+        "displayIconUrl": "sap-icon://appointment",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

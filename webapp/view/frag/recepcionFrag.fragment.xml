@@ -1,0 +1,210 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+                         xmlns:s="sap.m.semantic">
+    <!--ScrollContainer
+    height="20rem"
+    vertical="true"-->
+    <VBox class="sapUiSmallMargin">
+		
+		
+		
+		
+        <f:Form editable="true">
+            <f:layout>
+                <f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                                        emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="4" columnsM="3" singleContainerFullSize="false"/>
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label=" ">
+                            <f:fields>
+                                <CheckBox id="check_com_seguro" select="onCheckSeguro" text="Compañia de seguro">
+                                    <layoutData>
+                                        <l:GridData span="L12 M12 S12"/>
+                                    </layoutData>
+                                </CheckBox>
+								
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+				
+                <f:FormContainer id="ele_cbo_com_seguro">
+                    <f:formElements>
+                        <f:FormElement  label="Com. Seguro">
+                            <f:fields>
+
+                                <Select id="cbo_com_seguro" width="100%" items="{/seguroListaModel}">
+                                    <items>
+                                        <core:Item key="{SEGURO_ID}" text="{SEEGURO_DESC}"/>
+                                    </items>
+                                    <layoutData>
+                                        <l:GridData span="L12 M12 S12"/>
+                                    </layoutData>
+                                </Select>
+								
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+				
+                <f:FormContainer id="ele_txt_com_seguro" >
+                    <f:formElements>
+                        <f:FormElement  label="Otros">
+                            <f:fields>
+								
+                                <Input id="txt_com_seguro" value="">
+                                    <layoutData>
+                                        <l:GridData span="L12 M12 S12"/>
+                                    </layoutData>
+                                </Input>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+        <f:Form editable="true">
+            <f:layout>
+                <f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                                        emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="4" singleContainerFullSize="false"/>
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Color cono">
+                            <f:fields>
+                                <Input id="txt_color_cono" value=""/>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="N° Cono">
+                            <f:fields>
+                                <Input change="onChangeInput" id="txt_nro_cono" value=""/>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="N° Locker">
+                            <f:fields>
+                                <Input change="onChangeInput" id="txt_nro_locker" value=""/>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="N° Llave">
+                            <f:fields>
+                                <Input change="onChangeInput" id="txt_nro_llave" value=""/>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+		
+        
+		
+        <f:Form editable="true">
+            <f:layout>
+                <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                                        emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="4" columnsM="2" singleContainerFullSize="false"/>
+            </f:layout>
+            <f:formContainers>
+            	<f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Fecha entrega estimada">
+                            <f:fields>
+                                <DatePicker displayFormat="dd/MM/YYYY" valueFormat="dd/MM/YYYY" id="dp_fecha_entrega" value=""/>
+                            </f:fields>
+                        </f:FormElement>
+					
+                    </f:formElements>
+                </f:FormContainer>
+                
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Cuando">
+                            <f:fields>
+                                <Input id="txt_cuando" value=""/>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+					
+                </f:FormContainer>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Donde">
+                            <f:fields>
+                                <Input id="txt_donde" value=""/>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+					
+                </f:FormContainer>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Frecuencia">
+                            <f:fields>
+                                <Input id="txt_frecuencia" value=""/>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+					
+                </f:FormContainer> 
+            </f:formContainers>
+        </f:Form>
+		
+        <f:Form editable="true">
+            <f:layout>
+                <f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                                        emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="2" singleContainerFullSize="false"/>
+            </f:layout>
+            <f:formContainers>
+                
+                <f:FormContainer>
+                    <f:formElements>
+					
+                        <f:FormElement label="Condición de pago">
+                            <f:fields>
+                                <Select id="cbo_condicion_pago" width="100%" items="{/condicionPagoListaModel}">
+                                    <items>
+                                        <core:Item key="{COND_PAGO_ID}" text="{COND_PAGO_DESC}"/>
+                                    </items>
+                                </Select>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+        <f:Form editable="true">
+            <f:layout>
+                <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+                                                        emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Observaciones">
+                            <f:fields>
+                                <TextArea id="txt_observaciones_recepcion" rows="2">
+                                    <layoutData>
+                                        <l:GridData span="L12 M12 S12"/>
+                                    </layoutData>
+                                </TextArea>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
+    <!--/ScrollContainer-->
+</core:FragmentDefinition>

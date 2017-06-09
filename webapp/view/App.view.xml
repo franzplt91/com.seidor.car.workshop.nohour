@@ -1,0 +1,231 @@
+<mvc:View controllerName="pe.seidor.sap.comagenda_vehiculo.controller.App" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<App>
+		<SplitApp id="SplitApp" mode="HideMode" initialDetail="detail" initialMaster="master" orientationChange="onOrientationChange">
+			<detailPages>
+				<Page id="detail" title="Recepción" class="sapUiStdPage">
+					<content>
+						<ObjectHeader id="oh1" responsive="true" fullScreenOptimized="false" binding="{/Agenda}" intro="{TIPO_DOC_DESC} {CLIENTE_NRO_DOC}"
+							title="{CLIENTE_NOMBRES} {CLIENTE_APE_PATERNO} {CLIENTE_APE_MATERNO}" titleLevel="H3">
+							<attributes>
+								<ObjectAttribute title="Cita N°" text="{Correlativo}"/>
+								<ObjectAttribute title="Tecnico" text="{AGENDA_RESPONSABLE}"/>
+								<ObjectAttribute title="Placa" text="{VEHICULO_PLACA}"/>
+							</attributes>
+							<statuses>
+								<ObjectStatus title="Fecha Cita" text="{FECHA_CITA}"/>
+								<ObjectStatus title="Hora Cita" text="{HORA_CITA}"/>
+								<ObjectStatus title="Tolerancia" text="{HORA_TOLERANCIA}"/>
+							</statuses>
+						</ObjectHeader>
+						<l:VerticalLayout width="100%">
+							<IconTabBar id="tab_menu" select="onSelectChanged">
+								<items>
+									<IconTabFilter enabled="{/ActivaIconos}" design="Horizontal" icon="sap-icon://business-card" key="tab_cliente" text="Cliente">
+										<core:Fragment fragmentName="pe.seidor.sap.comagenda_vehiculo.view.frag.clienteFrag" type="XML"></core:Fragment>
+									</IconTabFilter>
+									<IconTabFilter enabled="{/ActivaIconos}" design="Horizontal" icon="sap-icon://car-rental" key="2" text="Vehiculo">
+										<core:Fragment fragmentName="pe.seidor.sap.comagenda_vehiculo.view.frag.vehiculoFrag" type="XML"></core:Fragment>
+									</IconTabFilter>
+									<IconTabSeparator icon=""/>
+									<IconTabFilter select="selectOrdenServicio" enabled="{/ActivaIconos}" design="Horizontal" icon="sap-icon://order-status" key="orden_servicio_icon"
+										text="Orden de Servicio">
+										<core:Fragment fragmentName="pe.seidor.sap.comagenda_vehiculo.view.frag.ordenServicioFrag" type="XML"></core:Fragment>
+									</IconTabFilter>
+									<IconTabFilter enabled="{/ActivaIconos}" design="Horizontal" icon="sap-icon://inspection" key="1" text="Puntos de Inspección">
+										<content>
+											<l:Grid class="sapUiSmallMarginTop">
+												<Panel>
+													<core:HTML id='htmlContentVistaFrontalPreview' content=''/>
+													<Button class='btn_edit_inspeccion' press="onOpenInspeccion" icon="sap-icon://edit"/>
+													<layoutData>
+														<l:GridData span="L7 M12 S12"/>
+													</layoutData>
+												</Panel>
+												<Table inset="false" items="{ path: '/listaInspeccion', sorter: { path: 'ItemNumero' } }">
+													<columns>
+														<Column width="2em">
+															<Text text="N°"/>
+														</Column>
+														<Column minScreenWidth="Tablet" demandPopin="true">
+															<Text text="Inventario de Daños"/>
+														</Column>
+														<Column minScreenWidth="Tablet" demandPopin="true"></Column>
+														<Column width="3em"></Column>
+													</columns>
+													<items>
+														<ColumnListItem>
+															<cells>
+																<ObjectIdentifier title="{ItemNumero}"/>
+																<ObjectIdentifier title="{Inspeccion/PINSPECCION_DESC}" text="{OcurrenciasText}"/>
+																<Text text="{Comentario}"/>
+																<Button press="onCancelPointInspeccion2" icon="sap-icon://delete"/>
+															</cells>
+														</ColumnListItem>
+													</items>
+													<layoutData>
+														<l:GridData span="L5 M12 S12"/>
+													</layoutData>
+												</Table>
+											</l:Grid>
+										</content>
+									</IconTabFilter>
+									<IconTabFilter enabled="{/ActivaIconos}" design="Horizontal" icon="sap-icon://camera" key="2" text="Fotografia">
+										<core:Fragment fragmentName="pe.seidor.sap.comagenda_vehiculo.view.frag.fotografiaFrag" type="XML"></core:Fragment>
+									</IconTabFilter>
+									<IconTabFilter enabled="{/ActivaIconos}" design="Horizontal" key="recepcion_icon" icon="sap-icon://vehicle-repair" text="Recepción">
+										<core:Fragment fragmentName="pe.seidor.sap.comagenda_vehiculo.view.frag.recepcionFrag" type="XML"></core:Fragment>
+									</IconTabFilter>
+								</items>
+							</IconTabBar>
+						</l:VerticalLayout>
+					</content>
+					<footer>
+						<Toolbar>
+							<ToolbarSpacer/>
+							<Button enabled="{/ActivaIconos}" text="Cancelar" press="CancelarInspeccion" type="Reject"/>
+							<Button enabled="{/ActivaIconos}" text="Aceptar" press="onSaveRecepccion" type="Accept"/>
+						</Toolbar>
+					</footer>
+				</Page>
+			</detailPages>
+			<masterPages>
+				<Page id="master" title="Agenda" icon="sap-icon://action" class="sapUiStdPage">
+					<subHeader>
+						<Toolbar>
+							<SearchField liveChange="handleSearchBox" id="txt_search" width="100%"/>
+						</Toolbar>
+					</subHeader>
+					<content>
+						<List id="listaAgenda" mode="SingleSelectMaster" headerText="Citas" items="{/agendaListaModel}" selectionChange="onSelectCliente">
+							<items>
+								<ObjectListItem class="hola_0000" title="{CLIENTE_NOMBRES} {CLIENTE_APE_PATERNO} {CLIENTE_APE_MATERNO}" intro="Cita N°: {Correlativo}"
+									type="Active" press="onListItemPress">
+									<firstStatus>
+										<ObjectStatus text="{TIPO_DOC_DESC} {CLIENTE_NRO_DOC}"/>
+									</firstStatus>
+									<attributes>
+										<ObjectAttribute title="Placa" text="{VEHICULO_PLACA}"/>
+										<ObjectAttribute title="Fecha Cita" text="{FECHA_CITA} {HORA_CITA} - {HORA_TOLERANCIA}"/>
+									</attributes>
+								</ObjectListItem>
+							</items>
+						</List>
+					</content>
+					<footer>
+						<Toolbar>
+							<ToolbarSpacer/>
+							<Button press="openFilter" icon="sap-icon://filter"/>
+						</Toolbar>
+					</footer>
+				</Page>
+			</masterPages>
+		</SplitApp>
+		<Dialog  id="dlg_autoparte" title="{/Inspeccion/PINSPECCION_DESC}">
+			<content>
+			<List id="list_ocurrencias" class="ocurrencias_item" items="{/OcurrenciaListaModel}" mode="MultiSelect" includeItemInSelection="true">
+					<items>
+						<ObjectListItem title="{OCURRENCIA_DESC}"></ObjectListItem>
+					</items>
+				</List>
+				<Panel >
+					<TextArea id="txt_comentario_inspeccion" growing="true" width="100%"/>
+				</Panel>
+			</content>
+			<beginButton>
+				<Button text="Cancelar" press="onCloseInspeccion" type="Reject"/>
+			</beginButton>
+			<endButton>
+				<Button text="Aceptar" press="onAgregarInspeccion" type="Accept"/>
+			</endButton>
+		</Dialog>
+		<Dialog class="ocurrenias_item_dialog" id="dlg_filtros" title="{/Inspeccion/PINSPECCION_DESC}">
+			<content>
+				<f:Form editable="false">
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+							emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false"/>
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement label="Fechas">
+									<f:fields>
+										<DatePicker displayFormat="dd/MM/YYYY" valueFormat="dd/MM/YYYY" id="dp_ini_filtro" value=""/>
+										<DatePicker displayFormat="dd/MM/YYYY" valueFormat="dd/MM/YYYY" id="dp_fin_filtro" value=""/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Marca">
+									<f:fields>
+										<Input id="txt_marca_filtro"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Modelo">
+									<f:fields>
+										<Input id="txt_modelo_filtro"/>
+									</f:fields>
+								</f:FormElement>
+								<f:FormElement label="Año">
+									<f:fields>
+										<Input id="txt_anio_filtro"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</content>
+			<beginButton>
+				<Button text="Cancelar" press="closeFilter" type="Reject"/>
+			</beginButton>
+			<endButton>
+				<Button text="Aceptar" press="goFilter" type="Accept"/>
+			</endButton>
+		</Dialog>
+		<Dialog stretch="true"  id="dlg_inspeccion" title="Inspección">
+			<content>
+				<l:Grid class="sapUiSmallMarginTop">
+					<Panel>
+						<FlexBox alignItems="Center" justifyContent="Center">
+							<items>
+								<core:HTML id='htmlContentVistaFrontal' content=''/>
+							</items>
+						</FlexBox>
+						<layoutData>
+							<l:GridData span="L7 M12 S12"/>
+						</layoutData>
+					</Panel>
+					<Table inset="false" items="{ path: '/listaInspeccion', sorter: { path: 'ItemNumero' } }">
+						<columns>
+							<Column width="2em">
+								<Text text="N°"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="Inventario de Daños"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true"></Column>
+							<Column width="3em"></Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<ObjectIdentifier title="{ItemNumero}"/>
+									<ObjectIdentifier title="{Inspeccion/PINSPECCION_DESC}" text="{OcurrenciasText}"/>
+									<Text text="{Comentario}"/>
+									<Button press="onCancelPointInspeccion" icon="sap-icon://delete"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+						<layoutData>
+							<l:GridData span="L5 M12 S12"/>
+						</layoutData>
+					</Table>
+				</l:Grid>
+			</content>
+			<endButton>
+				<Button text="Aceptar" press="onAceptaInspeccionCanvas" type="Accept"/>
+			</endButton>
+		</Dialog>
+	</App>
+</mvc:View>

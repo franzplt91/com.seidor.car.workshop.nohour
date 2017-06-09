@@ -1,0 +1,154 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+	xmlns:s="sap.m.semantic">
+	<!--ScrollContainer
+		height="20rem"
+		vertical="true"-->
+	<VBox class="sapUiSmallMargin">
+		<f:Form editable="false">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+					emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Tipo de Documento">
+							<f:fields>
+								<Select id="cbo_tipo_doc" enabled="false" width="100%" selectedKey="{/Agenda/CLIENTE_TIPO_DOC}" items="{/TipoDocListaModel}">
+									<items>
+										<core:Item key="{TIPO_DOC_ID}" text="{TIPO_DOC_DESC}"/>
+									</items>
+								</Select>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="N° de Documento">
+							<f:fields>
+								<Input id="cbo_nro_doc" editable="false" value="{/Agenda/CLIENTE_NRO_DOC}">
+								</Input>
+								<!--Button icon="sap-icon://search" press="onPress" ariaLabelledBy="actionButtonLabel">
+									<layoutData>
+										<l:GridData span="L2 M3 S12"/>
+									</layoutData>
+							</Button-->
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement visible="{/Agenda/IS_EMPRESA}" label="Giro comercial">
+							<f:fields>
+								<Select id="cbo_giro_comercial" enabled="false" width="100%" selectedKey="{/Agenda/CLIENTE_GIRO_NEGOCIO}" items="{/GiroComercialListaModel}">
+									<items>
+										<core:Item text="{GIRO_COM_DESC}" key="{GIRO_COM_ID}"/>
+									</items>
+								</Select>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="false">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+					emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Nombres">
+							<f:fields>
+								<Input id="txt_nombre" editable="false" value="{/Agenda/CLIENTE_NOMBRES}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Apellido Paterno">
+							<f:fields>
+								<Input id="txt_apellido_paterno" editable="false" value="{/Agenda/CLIENTE_APE_PATERNO}"></Input>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Apellido Materno">
+							<f:fields>
+								<Input id="txt_apellido_materno" editable="false" value="{/Agenda/CLIENTE_APE_MATERNO}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="false" ariaLabelledBy="Title1">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+					emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Direccion">
+							<f:fields>
+								<Input id="txt_direccion" editable="false" value="{/Agenda/CLIENTE_DIRECCION}"/>
+								<ComboBox id="cbo_ubigeo" enabled="false" selectedKey="{/Agenda/CLIENTE_UBIGEO}" width="100%" items="{/UbigeoListaModel}">
+									<items>
+										<core:ListItem additionalText="{UBIGEO_ID}" key="{UBIGEO_ID}" text="{UBIGEO_DISTRITO} / {UBIGEO_PROVINCIA} / {UBIGEO_DEPARTAMENTO}"/>
+									</items>
+									<layoutData>
+										<l:GridData span="L7 M6 S12"/>
+									</layoutData>
+								</ComboBox>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		
+		<f:Form editable="false" ariaLabelledBy="Title1">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+					emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Telefono">
+							<f:fields>
+								<Input id="txt_telefono" editable="false" value="{/Agenda/CLIENTE_TELEFONO}"></Input>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Celular">
+							<f:fields>
+								<Input  id="txt_celular" editable="false" value="{/Agenda/CLIENTE_CELULAR}"></Input>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Correo">
+							<f:fields>
+								<Input id="txt_correo" editable="false" value="{/Agenda/CLIENTE_CORREO}"></Input>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+	<!--/ScrollContainer-->
+</core:FragmentDefinition>

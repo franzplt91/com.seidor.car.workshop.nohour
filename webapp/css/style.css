@@ -1,0 +1,113 @@
+/* Enter your custom styles here */
+
+.hola_0000 > .sapMLIBContent > .sapMObjLTopRow > div > .sapMObjLTitle > .sapMTextMaxLine{
+	max-height: 100% !important;
+}
+.desc_ocurrencia_class{
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.ocurrencias_item .sapMObjLItem{
+	padding:0;
+	padding-left: 20px;
+}
+
+.ocurrenias_item_dialog .sapMNavItem{
+	    height: initial !important;
+}
+
+#__xmlview0--dlg_autoparte{
+	height: auto !important;
+}
+
+.item_ocurrencia .sapMCbBg {
+    margin-top: 15px;
+}
+
+.item_ocurrencia .sapMListTblHeader .sapMCbBg {
+    margin-top: 0;
+}
+
+#preview_inspeccion{
+    margin-top: 10px;
+}
+
+/* Alineamiento de tabs */
+.sapMITBCount{
+	display:none !important;
+}
+.sapMITBHorizontal.sapMITBFilter>.sapMITBTab, .sapMITBFilter>.sapMITBHorizontalWrapper{
+	display:block;
+	width:100% !important;
+}
+.sapMITBHorizontal.sapMITBFilter{
+	min-width:160px;
+}
+.sapMITBHorizontalWrapper{
+	max-width: unset;
+}
+.sapMITBHorizontal.sapMITBFilter>.sapMITBHorizontalWrapper>.sapMITBText{
+	text-align: center;
+	padding-top:2px;
+	max-width: unset !important;
+	padding-left:0px!important;
+	height:2rem;
+}
+.sapMITBScrollContainer .sapMITBHead{
+    margin: 5px 0 0 0;
+    height: 77px;
+}
+.sapMITBContentArrow{
+    position: absolute;
+    bottom: -13px;
+    width: 160px!important;
+}
+.sapMITBSepLine {
+    height: 70px;
+}
+/* Modificaciones RadioButtons y Checkbox */
+.sapMRbG .sapMRbHasLabel .sapMRbBOut{
+	margin-left:0;
+}
+.sapMRbG .sapMRbBLabel{
+	width:100px;
+	padding-left:30px;
+}
+.sapMRbHasLabel .sapMRbB {
+    width: 30px!important;
+}
+.sapMCb{
+	padding: 0 0 0 2rem;
+}
+.sapMRbG .sapMRbHasLabel{
+	clear:none;
+}
+/* Slider */
+.sapMSliderTickmarks{
+	z-index:99999;
+}
+
+.btn_edit_inspeccion{
+	position: absolute;
+    bottom: 120px;
+    left: 75px;
+}
+
+.btn_edit_inspeccion span{
+        border-radius: 40px !important;
+    height: 75px;
+    width: 75px;
+    font-size: 40px !important;
+    padding-top: 8px;
+}
+
+.sapMFlexBoxAlignContentStretch{
+	margin:0!important;
+}
+.sapUiFormResGrid>div{
+	padding:8px 0.75rem;
+}
+.sapUiFormResGridCont{
+	padding-bottom:8px;
+}

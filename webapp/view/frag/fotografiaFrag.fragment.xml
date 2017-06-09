@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
+                         xmlns:s="sap.m.semantic">
+    <!--ScrollContainer
+    height="20rem"
+    vertical="true"-->
+    <Dialog contentHeight="100%" contentWidth="100%" id="dlg_foto" title="Camara">
+        <content>
+            <FlexBox
+                alignItems="Center"
+                justifyContent="Center">
+                <items>
+                    <core:HTML id='htmlContentVistaCamara' content=''/>
+                </items>
+            </FlexBox>
+        </content>
+        <beginButton>
+            <Button text="Cerrar Camara" press="closeCamara" type="Reject"/>
+        </beginButton>
+        <endButton>
+            <Button text="Tomar Foto" press="TakePhoto" type="Accept"/>
+        </endButton>
+    </Dialog>
+    <Panel id="pnFotografia">
+        <headerToolbar>
+            <Toolbar>
+                <Title level="H2" text="Fotografia"/>
+                <ToolbarSpacer/>
+                <Button icon="sap-icon://camera" press="openCamara"/>
+            </Toolbar>
+        </headerToolbar>
+        <l:Grid defaultSpan="L4 M6 S12" id="gridFotos" class="sapUiSmallMarginTop">
+            <l:content>
+                
+                
+            </l:content>
+        </l:Grid>
+    </Panel>
+    <!--/ScrollContainer-->
+	
+</core:FragmentDefinition>
