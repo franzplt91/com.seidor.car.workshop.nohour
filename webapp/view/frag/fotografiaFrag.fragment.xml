@@ -3,7 +3,7 @@
     <!--ScrollContainer
     height="20rem"
     vertical="true"-->
-    <Dialog contentHeight="100%" contentWidth="100%" id="dlg_foto" title="Camara">
+    <Dialog id="dlg_foto" title="Camara">
         <content>
             <FlexBox
                 alignItems="Center"
@@ -12,6 +12,21 @@
                     <core:HTML id='htmlContentVistaCamara' content=''/>
                 </items>
             </FlexBox>
+
+                    <Panel width="100%">
+                <content>
+                    <TextArea id="txt_comentario_fotografia" placeholder="Detalle de la fotografía" width="100%">
+                        <layoutData>
+                            <l:GridData span="L12 M12 S12"/>
+                        </layoutData>
+                    </TextArea>
+                </content>
+                <layoutData>
+                    <l:GridData span="L12 M12 S12"/>
+                </layoutData>
+            </Panel>
+            
+            
         </content>
         <beginButton>
             <Button text="Cerrar Camara" press="closeCamara" type="Reject"/>

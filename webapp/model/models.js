@@ -12,7 +12,7 @@ sap.ui.define([
             return oModel;
         },
         modelXS: function () {
-           /* var oModel = new sap.ui.model.odata.ODataModel( //new sap.ui.model.odata.v2.ODataModel(
+           var oModel = new sap.ui.model.odata.ODataModel( //new sap.ui.model.odata.v2.ODataModel(
                 // serviceUrl: "/demo_services/storedata/services.xsodata/"
                 "https://dbdemop1942301772trial.hanatrial.ondemand.com/demo_services/storedata/services.xsodata/"
             );
@@ -20,12 +20,12 @@ sap.ui.define([
             oModel.setHeaders({
                 "Authorization": "Basic U1lTVEVNOlNlaWRvciQyMDE3I1BlcnU="
             });
-
-            return oModel; */
             
-            return new sap.ui.model.odata.v2.ODataModel({
+           /* return new sap.ui.model.odata.v2.ODataModel({
 				serviceUrl: "/demo_services/storedata/services.xsodata/"
-			});
+			}); */
+            
+            return oModel;
         },
         modelHXRead: function (url, servicio, callback, metodo) {
 
@@ -47,7 +47,7 @@ sap.ui.define([
                     var respuestaService = {
                         c: "s",
                         m: "",
-                        data: data.results
+                        data: data.results ? data.results: data
                     };
 
                     console.warn("SUCCES *********");

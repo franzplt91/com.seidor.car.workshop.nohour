@@ -1,34 +1,35 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table"
-                         xmlns:s="sap.m.semantic">
+                         xmlns:s="sap.m.semantic" >
     <!--ScrollContainer height="20rem" vertical="true"-->
     <VBox class="sapUiSmallMargin">
+        
         <f:Form editable="true" ariaLabelledBy="Title1">
             <f:layout>
                 <f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
-                                                                emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+                                        emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
             </f:layout>
             <f:formContainers>
                 <f:FormContainer>
                     <f:formElements>
                         <f:FormElement label="Tipo de Mantenimiento">
                             <f:fields>
-                            	<RadioButtonGroup id="check_group_mantencion" select="onCheckServicio">
-								 <buttons>
-									<RadioButton id="check_servicio" text="Servicio">
-										<layoutData>
-	                                        <l:GridData span="L6 M6 S6"/>
-	                                    </layoutData>
-									</RadioButton>
-	                                <RadioButton id="check_dp" text="D / P" >
-	                                	<layoutData>
-	                                        <l:GridData span="L6 M6 S6"/>
-	                                    </layoutData>
-									</RadioButton>
-	                                </buttons>
-	                                <layoutData>
+                                <RadioButtonGroup id="check_group_mantencion" select="onCheckServicio">
+                                    <buttons>
+                                        <RadioButton id="check_servicio" text="Servicio">
+                                            <layoutData>
+                                                <l:GridData span="L6 M6 S6"/>
+                                            </layoutData>
+                                        </RadioButton>
+                                        <RadioButton id="check_dp" text="D / P" >
+                                            <layoutData>
+                                                <l:GridData span="L6 M6 S6"/>
+                                            </layoutData>
+                                        </RadioButton>
+                                    </buttons>
+                                    <layoutData>
                                         <l:GridData span="L6 M12 S12"/>
                                     </layoutData>
-								</RadioButtonGroup>
+                                </RadioButtonGroup>
                                 <Select id="cbo_tipo_mantencion" width="100%" items="{/tipoMantencionListaModel}">
                                     <items>
                                         <core:Item key="{TIPO_MANTENCION_ID}" text="{TIPO_MANTENCION_DESC}"/>
@@ -71,7 +72,7 @@
         <f:Form>
             <f:layout>
                 <f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
-                                                                emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                        emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
             </f:layout>
             <f:formContainers>
                 <f:FormContainer>
@@ -93,7 +94,7 @@
         <f:Form>
             <f:layout>
                 <f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
-                                                                emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                        emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
             </f:layout>
             <f:formContainers>
                 <f:FormContainer>
@@ -169,7 +170,7 @@
         <f:Form>
             <f:layout>
                 <f:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
-                                                                emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false"/>
+                                        emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false"/>
             </f:layout>
             <f:formContainers>
                 <f:FormContainer>

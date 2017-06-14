@@ -13,7 +13,7 @@ sap.ui.define([
 		},
 		getListAll: function(callback) {
 			
-			return models.modelHXRead(this.stringModel,this.genNameService("getListAll"),callback);
+			return models.modelHXRead("/VistaClientesAll",this.genNameService("getListAll"),callback);
 			
 		}
 
